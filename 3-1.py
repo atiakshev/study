@@ -1,6 +1,5 @@
-#Для чисел в пределах от 20 до 240 найти числа, кратные 20 или 21.
-# Необходимо решить задание в одну строку.
-# Подсказка: использовать функцию range() и генератор.
 
-
-print(f'Числа от 20 до 240 кратные 20 или 21 - {[el for el in range(20, 241) if el % 20 == 0 or el % 21 == 0]}')
+with open('3.txt', 'r') as f:
+    employees_dict = {line.split()[0]: float(line.split()[1]) for line in f}
+    print(f'Average salary = {round(sum(employees_dict.values()) / len(employees_dict), 3)}\n'
+          f'Employees with salary less than 20k {[e[0] for e in employees_dict.items() if e[1] < 20000]}')

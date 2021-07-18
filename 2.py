@@ -1,21 +1,21 @@
-# Представлен список чисел.
-# Необходимо вывести элементы исходного списка,
-# значения которых больше предыдущего элемента.
-# Подсказка: элементы, удовлетворяющие условию, оформить в виде списка.
-# Для формирования списка использовать генератор.
-# Пример исходного списка: [300, 2, 12, 44, 1, 1, 4, 10, 7, 1, 78, 123, 55].
-# Результат: [12, 44, 4, 10, 78, 123].
+# Создать текстовый файл (не программно),
+# сохранить в нем несколько строк,
+# выполнить подсчет количества строк,
+# количества слов в каждой строке.
 
-
-list = [300, 2, 12, 44, 1, 1, 4, 10, 7, 1, 78, 123, 55,]
-new_list = [el for el in list if el > list[list.index(el)-1]]
-print(f'Исходный список {list}')
-print(f'Новый список {new_list}')
-
-
-
-
-#new_list = [el for el in list if el > list[list.index(el)-1]]
-#print(f'Исходный список {list}')
-#print(f'Обработанный список {list}')
+list = ['Mercury\n', 'Venus\n', 'Earth\n',
+        'Mars\n' 'Jupiter\n', 'Saturn\n',
+        'Uranus\n', 'Neptune\n']
+with open('solar_system.txt', 'w') as file_obj:
+    file_obj.writelines(list)
+lines_n = 0
+words_n = 0
+f = open('solar_system.txt', 'r')
+for line in f:
+    lines_n += 1
+    words = line.split()
+    words_n += len(words)
+f.close()
+print(lines_n)
+print(words_n)
 
