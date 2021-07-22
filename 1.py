@@ -1,17 +1,19 @@
-# Реализовать скрипт, в котором должна быть предусмотрена
-# функция расчета заработной платы сотрудника. В расчете
-# необходимо использовать формулу:
-# (выработка в часах*ставка в час) + премия.
-# Для выполнения расчета для конкретных значений необходимо
-# запускать скрипт с параметрами.
+from time import sleep
 
-def sal():
-    try:
-        time = float(input('Выработка в часах: '))
-        salary = int(input('Ставка в час: '))
-        bonus = int(input('Премия:  '))
-        res = time * salary + bonus
-        print(f'заработная плата сотрудника  {res}')
-    except ValueError:
-        return print('Not a number')
-sal()
+class TrafficLight:
+    _colors = ['red', 'yellow', 'green']
+
+    def running(self):
+        i=0
+        while i<3:
+            print(f'TrafficLight - ',f'{TrafficLight._colors[i]}')
+            if i == 0:
+                sleep(7)
+            elif i ==1:
+                sleep(5)
+            elif i == 2:
+                sleep(7)
+            i  += 1
+TrafficLight = TrafficLight()
+TrafficLight.running()
+

@@ -1,11 +1,27 @@
-# Реализовать формирование списка, используя функцию range() и возможности генератора.
-# В список должны войти четные числа от 100 до 1000 (включая границы).
-# Необходимо получить результат вычисления произведения всех элементов списка.
-# Подсказка: использовать функцию reduce().
+class Stationary:
+    def __init__(self, title):
+        self.title = title
 
-from functools import reduce
+    def draw(self):
+       print( f'Запуск отрисовки {self.title}')
 
-def my_func(el_p, el):
-    return el_p * el
-print(f'Список четных значений {[el for el in range(100, 1001) if el % 2 == 0]}')
-print(f'Результат перемножения всех элементов списка {reduce(my_func, [el for el in range(99, 1001) if el % 2 == 0])}')
+
+class Pen(Stationary):
+    def draw(self):
+        print( f'Вы взяли {self.title}. Запуск отрисовки ручкой')
+
+class Pencil(Stationary):
+    def draw(self):
+        print( f'Вы взяли {self.title}. Запуск отрисовки карандашом')
+
+class Marker(Stationary):
+    def draw(self):
+        print( f'Вы взяли {self.title}. Запуск отрисовки маркером')
+
+pen = Pen('Ручка')
+pencil = Pencil('Карандаш')
+marc = Marker('Маркер')
+
+pen.draw()
+pencil.draw()
+marc.draw()

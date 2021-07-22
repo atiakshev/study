@@ -1,6 +1,20 @@
-#Для чисел в пределах от 20 до 240 найти числа, кратные 20 или 21.
-# Необходимо решить задание в одну строку.
-# Подсказка: использовать функцию range() и генератор.
+class Worker:
+
+    def __init__(self, name, surname, position, wage, bonus):
+        self.name = name
+        self.surname = surname
+        self.position = position
+        self._income = {"wage": wage, "bonus": bonus}
+
+class Position(Worker):
+    def get_full_name(self):
+        return self.name + ' ' + self.surname
+
+    def get_total_income(self):
+        return self._income.get('wage') + self._income.get('bonus')
 
 
-print(f'Числа от 20 до 240 кратные 20 или 21 - {[el for el in range(20, 241) if el % 20 == 0 or el % 21 == 0]}')
+a = Position('Иван', 'Иванов', 'Програмист', 75000, 25000)
+print(a.get_full_name())
+print(a.position)
+print(a.get_total_income())

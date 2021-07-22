@@ -1,21 +1,12 @@
-# Представлен список чисел.
-# Необходимо вывести элементы исходного списка,
-# значения которых больше предыдущего элемента.
-# Подсказка: элементы, удовлетворяющие условию, оформить в виде списка.
-# Для формирования списка использовать генератор.
-# Пример исходного списка: [300, 2, 12, 44, 1, 1, 4, 10, 7, 1, 78, 123, 55].
-# Результат: [12, 44, 4, 10, 78, 123].
+class Road:
+    def __init__(self, length, width,weigth,thickness):
+        self.length = length
+        self.width = width
+        self.weigth = weigth
+        self.thickness = thickness
+    def mass(self):
+        mass = self.length * self.width * self.weigth * self.thickness / 1000
 
-
-list = [300, 2, 12, 44, 1, 1, 4, 10, 7, 1, 78, 123, 55,]
-new_list = [el for el in list if el > list[list.index(el)-1]]
-print(f'Исходный список {list}')
-print(f'Новый список {new_list}')
-
-
-
-
-#new_list = [el for el in list if el > list[list.index(el)-1]]
-#print(f'Исходный список {list}')
-#print(f'Обработанный список {list}')
+road = Road(100000,20, 25,0.05)
+print(f'Для построения дороги требуется {road.mass()} тонн асфальта')
 
