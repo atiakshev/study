@@ -1,47 +1,41 @@
 class Car:
-    name: str
-    color: str
-    speed: int
-    is_police: bool
 
     def __init__(self,speed,color,name,is_police):
         self.speed = speed
         self.color = color
         self.name = name
         self.is_police = is_police
+        print(f'Новая машина: {self.name} (Цвет{self.color}) машина полицейская - {self.is_police}')
 
     def go(self):
-        return f'{self.name} начал движение'
+        print(f'{self.name} начал движение')
 
     def stop(self):
-        return f'{self.name} остановился'
+        print(f'{self.name} остановился')
 
-    def turn_right(self):
-        return f'{self.name} повернул направо'
-
-    def turn_left(self):
-        return f'{self.name} повернул налево'
+    def turn(self,direction):
+        print(f"{self.name}: Машина повернула {'налево' if direction ==0 else 'направо'}")
 
     def show_speed(self):
-        return f'Скорость {self.name} составила {self.speed}'
+        print(f'{self.name}: Скорость автомобиля - {self.speed}')
 
 class TownCar(Car):
     def show_speed(self):
         if self.speed > 60:
-            return f'превысил скорость'
+            print(f'{self.name} превысил скорость')
         else:
             return self.speed
 
 class SportCar(Car):
     def sport_car(self):
-        return f'- sport car.'
+        print(f'{self.name} спортивный автомобиль')
 
 class WorkCar(Car):
     def show_speed(self):
         if self.speed > 40:
-            return f'превысил скорость'
+            print(f'{self.name} превысил скорость')
         else:
-            return self.speed
+            print(f'{self.name}: Скорость автомобиля - {self.speed}')
 
 class PoliceCar(Car):
     def ispolice(self):
@@ -59,7 +53,7 @@ print(f'Марка городского авто: {lada.name}.\n'
       f'Скорость спортивного авто: {ferrari.speed}км/ч.\n'
       f'Форд - полицейский автомобиль: {ford.is_police}.')
 print(f'Ferrari {ferrari.sport_car()}\n'
-      f'Ferrari {ferrari.go()} и {ferrari.turn_left()}.')
+      f'Ferrari {ferrari.go()} и {ferrari.turn(0)}.')
 print(f'Lada {lada.show_speed()} и {lada.stop()}.')
-print(f'Kamaz {kamaz.turn_right()} и его скорость составляет сейчас {kamaz.show_speed()}км/ч.')
+print(f'Kamaz {kamaz.turn(1)} и его скорость составляет сейчас {kamaz.show_speed()}км/ч.')
 print(f'Ford  {ford .ispolice()}')
