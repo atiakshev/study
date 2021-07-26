@@ -1,21 +1,28 @@
-# Представлен список чисел.
-# Необходимо вывести элементы исходного списка,
-# значения которых больше предыдущего элемента.
-# Подсказка: элементы, удовлетворяющие условию, оформить в виде списка.
-# Для формирования списка использовать генератор.
-# Пример исходного списка: [300, 2, 12, 44, 1, 1, 4, 10, 7, 1, 78, 123, 55].
-# Результат: [12, 44, 4, 10, 78, 123].
+from abc import ABC, abstractmethod
 
+class Clothes (ABC):
+    def __int__(self, param):
+        self.param = param
 
-list = [300, 2, 12, 44, 1, 1, 4, 10, 7, 1, 78, 123, 55,]
-new_list = [el for el in list if el > list[list.index(el)-1]]
-print(f'Исходный список {list}')
-print(f'Новый список {new_list}')
+    @property
+    @abstractmethod
+    def consumption(self):
+        pass
 
+    def __add__(self,other):
+        return self.consumption + other.consumption
 
+class Coat(Clothes):
 
+    @property
+    def consumption(self):
+         return round(self.param / 6.5) + 0.5
 
-#new_list = [el for el in list if el > list[list.index(el)-1]]
-#print(f'Исходный список {list}')
-#print(f'Обработанный список {list}')
+class Costume (Clothes):
 
+    @property
+    def consumption(self):
+        return (2 * self.param + 0.3) / 100
+coat = Coat(58)
+costume = Costume(240)
+print(coat + costume)

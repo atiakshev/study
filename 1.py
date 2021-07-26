@@ -1,17 +1,24 @@
-# Реализовать скрипт, в котором должна быть предусмотрена
-# функция расчета заработной платы сотрудника. В расчете
-# необходимо использовать формулу:
-# (выработка в часах*ставка в час) + премия.
-# Для выполнения расчета для конкретных значений необходимо
-# запускать скрипт с параметрами.
+a = [[3,5,4,1],[3,5,2,6],[6,3,5,2]]
+b =[[1,2,3,4],[2,3,4,5],[3,4,5,6]]
 
-def sal():
-    try:
-        time = float(input('Выработка в часах: '))
-        salary = int(input('Ставка в час: '))
-        bonus = int(input('Премия:  '))
-        res = time * salary + bonus
-        print(f'заработная плата сотрудника  {res}')
-    except ValueError:
-        return print('Not a number')
-sal()
+class Matrix:
+
+    def __init__(self,lists):
+        self.lists = lists
+
+    def __str__(self):
+        return  '\n'.join(map(str,self.lists))
+    
+    def __add__(self, other):
+        c = []
+        for i in range(len(self.lists)):
+            c.append([])
+            for j in range(len(self.lists)):
+                c[i].append(self.lists[i][j] + other.lists[i][j])
+        return '\n'.join(map(str,c))
+matrix1 = Matrix(a)
+matrix2 = Matrix(b)
+
+print(matrix1, '\n')
+print(matrix2, '\n')
+print(matrix1 + matrix2)
